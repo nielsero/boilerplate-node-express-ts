@@ -1,7 +1,7 @@
 {
-  "name": "node-typescript-boilerplate",
+  "name": "boilerplate-node-express-ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple boilerplate code for node apps using express w/ typescript",
   "main": "src/main.ts",
   "scripts": {
     "build": "rimraf dist && tsc --project tsconfig.build.json && tsc-alias",
@@ -15,10 +15,12 @@
     "format:fix": "prettier --write \"src/**\""
   },
   "keywords": [
+    "boilerplate",
     "node",
-    "typescript",
-    "boilerplate"
+    "express",
+    "typescript"
   ],
+  "repository": "https://github.com/nielsero/boilerplate-node-express-ts",
   "author": "nielsero",
   "license": "ISC",
   "devDependencies": {
