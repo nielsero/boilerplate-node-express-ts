@@ -1,4 +1,5 @@
 import { HttpError } from "@/shared/errors";
+import { logger } from "@/utils";
 import { NextFunction, Request, Response } from "express";
 
 export const httpErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
@@ -10,7 +11,7 @@ export const httpErrorHandler = (err: Error, req: Request, res: Response, next: 
       },
     });
 
-  console.log(err); // WTFError
+  logger.error(err); // WTFError
 
   return res.status(500).json({
     error: {
