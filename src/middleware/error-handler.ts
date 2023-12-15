@@ -2,7 +2,7 @@ import { HttpError } from "@/shared/errors";
 import { logger } from "@/utils";
 import { NextFunction, Request, Response } from "express";
 
-export const httpErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof HttpError)
     return res.status(err.code).json({
       error: {
@@ -11,7 +11,7 @@ export const httpErrorHandler = (err: Error, req: Request, res: Response, next: 
       },
     });
 
-  logger.error(err); // WTFError
+  logger.error(`[error-handler] ${err.message}`); // WTFError
 
   return res.status(500).json({
     error: {

@@ -5,6 +5,6 @@ export class HealthRouter {
   constructor(private readonly controller: HealthController) {}
 
   setup(router: Router) {
-    router.get("/api/health", this.controller.handle.bind(this.controller));
+    router.get("/health", this.controller.handle.bind(this.controller));
   }
 }
