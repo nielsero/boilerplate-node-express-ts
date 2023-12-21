@@ -1,13 +1,13 @@
 import { app } from "@/app";
 import { PORT } from "@/config";
-import { makeHealthRouter } from "@/factories";
 import { errorHandler, notFoundHandler, requestLogger } from "@/middleware";
-import { logger } from "@/utils";
+import { logger } from "@/utils/logger";
+import { buyHealthRouter } from "@/store/health";
 
 main();
 
 async function main(): Promise<void> {
-  const healthRouter = makeHealthRouter();
+  const healthRouter = buyHealthRouter();
 
   app.use(requestLogger);
   healthRouter.setup(app);

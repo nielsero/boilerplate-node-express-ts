@@ -1,23 +1,12 @@
 import { app } from "@/app";
-import { HealthController, HealthRouter } from "@/modules/health";
+import { buyHealthRouter } from "@/store/health";
 import supertest from "supertest";
 
 let api: supertest.SuperTest<supertest.Test>;
-
-type SutTypes = {
-  sut: HealthRouter;
-  controller: HealthController;
-};
-
-const makeSut = (): SutTypes => {
-  const controller = new HealthController();
-  const sut = new HealthRouter(controller);
-  return { sut, controller };
-};
+const sut = buyHealthRouter();
 
 describe("HealthRouter", () => {
   beforeAll(() => {
-    const { sut } = makeSut();
     sut.setup(app);
     api = supertest(app);
   });
